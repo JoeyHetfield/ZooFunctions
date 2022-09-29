@@ -11,6 +11,9 @@ function isManager(id) {
 }
 
 function getRelatedEmployees(managerId) {
-  // seu código aqui
+  if (isManager(managerId) === false) {
+    throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
+  } return data.employees.filter((employe) => employe.managers.find((el) => el === managerId))
+    .map((nome) => `${nome.firstName} ${nome.lastName}`);
 }
 module.exports = { isManager, getRelatedEmployees };
