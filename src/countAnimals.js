@@ -11,10 +11,18 @@ const totalAnimals = () => animals.reduce((acc, index) => {
 function countAnimals(animal) {
   if (animal === undefined) {
     return totalAnimals();
-  } return 'testando';
+  } if (!animal.sex) {
+    return animals.filter((bicho) => bicho.name === animal.specie)
+      .map((bicho) => bicho.residents.length)[0];
+  } return animals.find((bicho) => bicho.name === animal.specie).residents
+    .filter((gender) => gender.sex === animal.sex).length;
 }
 
-console.log(countAnimals());
+/* Consegui esse quando separei o ultimo requisito em partes = const teste = animals.find((bicho) => bicho.name === animal.specie).residents;
+  return teste.filter((gender) => gender.sex === animal.sex).length */
+
+// Primeira tentativa que deu erro ==== return animals.filter((bicho) => bicho.name === animal.specie && bicho.residents.sex ===
+// animal.sex).map((bicho) => bicho.residents.length)
 
 module.exports = countAnimals;
 
