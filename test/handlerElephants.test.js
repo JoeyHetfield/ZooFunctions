@@ -23,4 +23,7 @@ describe('Testes da função HandlerElephants', () => {
   it('Retornar nulo se for um parametro que não é correto', () => {
     expect(handlerElephants('JoeyHetfield')).toBe(null);
   });
+  it('Retornar o valor de popularidade', () => {
+    expect(handlerElephants('popularity')).toEqual(5);
+  });
 });
